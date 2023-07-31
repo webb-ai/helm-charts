@@ -1,0 +1,36 @@
+image:
+  repository: public.ecr.aws/p5v6t9h8
+  pullPolicy: IfNotPresent
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+clientID: ""
+apiKey: ""
+
+resourceCollector:
+  image:
+    tag: v0.4.4
+  kafka:
+    servers: ""
+  resources: {}
+
+trafficCollector:
+  image:
+    tag: v0.8.3.1
+  resources: {}
+

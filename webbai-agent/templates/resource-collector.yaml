@@ -1,0 +1,74 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+#  namespace: webbai
+  name: resource-collector
+  labels:
+    app: resource-collector
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: resource-collector
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: /metrics
+        prometheus.io/port: "9090"
+      labels:
+        app: resource-collector
+    spec:
+      serviceAccountName: webbai
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: "kubernetes.io/arch"
+                    operator: In
+                    values: ["amd64"]
+      containers:
+        - image: "{{ .Values.image.repository }}/k8s-resource-collector:{{ .Values.resourceCollector.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          name: resource-collector
+          env:
+            - name: CLIENT_ID
+              value: {{ .Values.clientID | quote }}
+            - name: API_KEY
+              value: {{ .Values.apiKey | quote }}
+          command:
+            - /app/collector
+            - --data-dir # directory to store staged data
+            - /app/data
+            - --kube-api-qps # max qps from this client to kube api server
+            - "20"
+            - --kube-api-burst # max burst for throttle from this client to kube api server
+            - "30"
+            - --traffic-collector-pod-selector
+            - app=traffic-collector
+            - --traffic-collector-metrics-port
+            - "9095"
+            - --traffic-collector-server-port
+            - "8897"
+            - --kafka-bootstrap-servers
+            - {{ .Values.resourceCollector.kafka.servers | quote }}
+            - --kafka-polling-interval
+            - "5m"
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 9091
+              scheme: HTTP
+            failureThreshold: 3
+            initialDelaySeconds: 15
+            periodSeconds: 15
+            timeoutSeconds: 5
+          resources:
+            requests:
+              memory: 1000Mi
+              cpu: 300m
+            limits:
+              memory: 2000Mi
+              cpu: 500m

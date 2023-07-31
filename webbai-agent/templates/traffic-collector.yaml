@@ -1,0 +1,89 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    app: traffic-collector
+  name: traffic-collector
+#  namespace: webbai
+spec:
+  selector:
+    matchLabels:
+      app: traffic-collector
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: /webbai_metrics
+        prometheus.io/port: "9095"
+      labels:
+        app: traffic-collector
+      name: traffic-collector
+    spec:
+      containers:
+        - command:
+            - ./worker
+            - -i
+            - any
+            - -port
+            - "8897"
+            - -metrics-port
+            - "9095"
+            - -packet-capture
+            - libpcap
+            - -servicemesh
+            - -tls
+            - -procfs
+            - /hostproc
+          image: "{{ .Values.image.repository }}/k8s-traffic-collector:{{ .Values.trafficCollector.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          name: traffic-collector
+          env:
+            - name: GOGC
+              value: '50'
+          ports:
+            - containerPort: 8897
+              hostPort: 8897
+            - containerPort: 9095
+              hostPort: 9095
+          resources:
+            limits:
+              cpu: '750m'
+              memory: '1Gi'
+            requests:
+              cpu: '100m'
+              memory: '200Mi'
+          securityContext:
+            capabilities:
+              add:
+                - NET_RAW
+                - NET_ADMIN
+                - SYS_ADMIN
+                - SYS_PTRACE
+                - DAC_OVERRIDE
+                - SYS_RESOURCE
+              drop:
+                - ALL
+          volumeMounts:
+            - mountPath: /hostproc
+              name: proc
+              readOnly: true
+            - mountPath: /sys
+              name: sys
+              readOnly: true
+      dnsPolicy: ClusterFirstWithHostNet
+      hostNetwork: true
+      serviceAccountName: webbai
+      terminationGracePeriodSeconds: 0
+      tolerations:
+        - effect: NoExecute
+          operator: Exists
+        - effect: NoSchedule
+          operator: Exists
+      volumes:
+        - hostPath:
+            path: /proc
+          name: proc
+        - hostPath:
+            path: /sys
+          name: sys
