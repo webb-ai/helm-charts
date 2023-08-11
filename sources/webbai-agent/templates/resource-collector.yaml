@@ -69,9 +69,4 @@ spec:
             periodSeconds: 15
             timeoutSeconds: 5
           resources:
-            requests:
-              memory: 1000Mi
-              cpu: 300m
-            limits:
-              memory: 2000Mi
-              cpu: 500m
+            {{- toYaml .Values.resourceCollector.resources | nindent 12 }}

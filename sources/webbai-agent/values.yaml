@@ -6,32 +6,36 @@ serviceAccount:
   # Specifies whether a service account should be created
   create: true
 
-
-resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
-
+# client id, contact webb.ai to get a clientID
 clientID: ""
+# api key, contact webb.ai to get a API key
 apiKey: ""
 
 resourceCollector:
   image:
     tag: v0.4.5
   kafka:
+    # list of bootstrap servers for kafka, separated by comma
     servers: ""
-  resources: {}
+  resources:
+    requests:
+      memory: 1000Mi
+      cpu: 300m
+    limits:
+      memory: 2000Mi
+      cpu: 500m
 
 trafficCollector:
   image:
     tag: v0.8.3.1
-  resources: {}
+  resources:
+    requests:
+      memory: 200Mi
+      cpu: 300m
+    limits:
+      memory: 1000Mi
+      cpu: 500m
 
+# whether to redact env variables
+# if true, env variables in containers and initContainers of pods, deployments, daemonsets, statefulsets, job, and cronjobs will be masked before sending to webb.ai
 redactEnvVar: false
