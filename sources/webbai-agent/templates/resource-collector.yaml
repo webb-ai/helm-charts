@@ -56,7 +56,7 @@ spec:
             - {{ .Values.resourceCollector.kafka.servers | quote }}
             - --kafka-polling-interval
             - "5m"
-            {{- if .Values.redactEnvVar -}}
+            {{- if .Values.redactEnvVar }}
             - --redact-env-var
             {{- end }}
           livenessProbe:
