@@ -3,13 +3,12 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   labels:
-    app: traffic-collector
-  name: traffic-collector
-#  namespace: webbai
+    app: webbai-traffic-collector
+  name: webbai-traffic-collector
 spec:
   selector:
     matchLabels:
-      app: traffic-collector
+      app: webbai-traffic-collector
   template:
     metadata:
       annotations:
@@ -17,8 +16,8 @@ spec:
         prometheus.io/path: /webbai_metrics
         prometheus.io/port: "9095"
       labels:
-        app: traffic-collector
-      name: traffic-collector
+        app: webbai-traffic-collector
+      name: webbai-traffic-collector
     spec:
       containers:
         - command:
@@ -37,7 +36,7 @@ spec:
             - /hostproc
           image: "{{ .Values.image.repository }}/k8s-traffic-collector:{{ .Values.trafficCollector.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          name: traffic-collector
+          name: webbai-traffic-collector
           env:
             - name: GOGC
               value: '50'

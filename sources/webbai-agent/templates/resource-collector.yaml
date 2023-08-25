@@ -3,14 +3,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
 #  namespace: webbai
-  name: resource-collector
+  name: webbai-resource-collector
   labels:
-    app: resource-collector
+    app: webbai-resource-collector
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: resource-collector
+      app: webbai-resource-collector
   template:
     metadata:
       annotations:
@@ -18,7 +18,7 @@ spec:
         prometheus.io/path: /metrics
         prometheus.io/port: "9090"
       labels:
-        app: resource-collector
+        app: webbai-resource-collector
     spec:
       serviceAccountName: webbai
       affinity:
@@ -32,7 +32,7 @@ spec:
       containers:
         - image: "{{ .Values.image.repository }}/k8s-resource-collector:{{ .Values.resourceCollector.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          name: resource-collector
+          name: webbai-resource-collector
           env:
             - name: CLIENT_ID
               value: {{ .Values.clientID | quote }}
