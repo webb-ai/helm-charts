@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   webbai-agent:
   - apiVersion: v2
+    appVersion: v0.4.6
+    created: "2023-08-25T10:40:24.082008-07:00"
+    description: A Helm chart for Kubernetes
+    digest: 646da8ee98808fcedf904ca3a0c9f17c78816b1e29632737da5003d1a51512e6
+    name: webbai-agent
+    type: application
+    urls:
+    - webbai-agent-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
     appVersion: v0.4.5
     created: "2023-08-11T12:02:41.709028-07:00"
     description: A Helm chart for Kubernetes
@@ -31,4 +41,4 @@ entries:
     urls:
     - https://webb-ai.github.io/helm-charts/packages/webbai-agent-0.1.0.tgz
     version: 0.1.0
-generated: "2023-08-11T12:02:41.707124-07:00"
+generated: "2023-08-25T10:40:24.082036-07:00"
