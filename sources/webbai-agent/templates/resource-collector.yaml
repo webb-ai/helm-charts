@@ -47,7 +47,7 @@ spec:
             - --kube-api-burst # max burst for throttle from this client to kube api server
             - "30"
             - --traffic-collector-pod-selector
-            - app=traffic-collector
+            - app=webbai-traffic-collector
             - --traffic-collector-metrics-port
             - "9095"
             - --traffic-collector-server-port
