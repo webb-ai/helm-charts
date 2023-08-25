@@ -6,8 +6,8 @@ This helm repo is hosted at https://webb-ai.github.io/helm-charts/.
 
 ```bash
 helm repo add webb.ai https://webb-ai.github.io/helm-charts/
-helm repo update
-helm install webbai-agent webb.ai/webbai-agent -n webbai --create-namespace --set clientID="xxx" --set apiKey="xxx"
+elm repo update
+helm install webbai-agent webb.ai/webbai-agent -n webbai --create-namespace --set-string clientID="xxx" --set apiKey="xxx"
 ```
 
 Get the clientID and apiKey from webb.ai.
