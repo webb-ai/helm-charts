@@ -13,7 +13,7 @@ apiKey: ""
 
 resourceCollector:
   image:
-    tag: v0.4.6
+    tag: v0.4.7
   kafka:
     # list of bootstrap servers for kafka, separated by comma
     servers: ""
