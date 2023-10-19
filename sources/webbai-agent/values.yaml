@@ -12,8 +12,6 @@ clientID: ""
 apiKey: ""
 
 resourceCollector:
-  image:
-    tag: v0.4.8
   kafka:
     # list of bootstrap servers for kafka, separated by comma
     servers: ""
@@ -26,8 +24,6 @@ resourceCollector:
       cpu: 500m
 
 trafficCollector:
-  image:
-    tag: v0.8.3.1
   resources:
     requests:
       memory: 200Mi
