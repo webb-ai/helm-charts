@@ -34,7 +34,7 @@ spec:
             - -tls
             - -procfs
             - /hostproc
-          image: "{{ .Values.image.repository }}/k8s-traffic-collector:v0.8.3.1"
+          image: "{{ .Values.image.repository }}/k8s-traffic-collector:v0.8.3.2"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           name: webbai-traffic-collector
           env:
