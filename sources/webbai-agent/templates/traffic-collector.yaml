@@ -77,7 +77,7 @@ spec:
                   operator: NotIn
                   values: ["fargate"]
       terminationGracePeriodSeconds: 0
-      {{- with .Values.tolerations }}
+      {{- with .Values.trafficCollector.tolerations }}
       tolerations: {{ toYaml . | nindent 8 }}
       {{- end }}
       volumes:
