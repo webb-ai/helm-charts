@@ -68,12 +68,18 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       hostNetwork: true
       serviceAccountName: webbai
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                - key: "eks.amazonaws.com/compute-type"
+                  operator: NotIn
+                  values: ["fargate"]
       terminationGracePeriodSeconds: 0
-      tolerations:
-        - effect: NoExecute
-          operator: Exists
-        - effect: NoSchedule
-          operator: Exists
+      {{- with .Values.tolerations }}
+      tolerations: {{ toYaml . | nindent 8 }}
+      {{- end }}
       volumes:
         - hostPath:
             path: /proc

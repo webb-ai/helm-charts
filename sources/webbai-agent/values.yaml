@@ -24,6 +24,7 @@ resourceCollector:
       cpu: 500m
 
 trafficCollector:
+  tolerations: []
   resources:
     requests:
       memory: 200Mi
