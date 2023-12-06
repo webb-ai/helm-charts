@@ -17,10 +17,12 @@ Get the clientID and apiKey from webb.ai.
 
 
 ```bash
+git pull
 helm package sources/webbai-agent --destination packages
 helm repo index . --url https://webb-ai.github.io/helm-charts/ --merge index.yaml
 git add .
 git commit -m "publish a new chart"
+git push
 cr upload --owner webb-ai --git-repo helm-charts  --package-path packages --skip-existing
 
 ```
