@@ -12,6 +12,8 @@ clientID: ""
 apiKey: ""
 
 resourceCollector:
+  image:
+    tag: v0.5.3
   kafka:
     # list of bootstrap servers for kafka, separated by comma
     servers: ""
@@ -24,6 +26,8 @@ resourceCollector:
       cpu: 500m
 
 trafficCollector:
+  image:
+    tag: v0.8.3.2
   tolerations: []
   resources:
     requests:
@@ -34,5 +38,5 @@ trafficCollector:
       cpu: 500m
 
 # whether to redact env variables
-# if true, env variables in containers and initContainers of pods, deployments, daemonsets, statefulsets, job, and cronjobs will be masked before sending to webb.ai
+# if true, env variables in containers and initContainers of pods, deployments, daemonsets, statefulsets, job, and cronjobs will be removed before sending to webb.ai
 redactEnvVar: false

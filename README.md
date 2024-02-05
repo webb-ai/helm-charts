@@ -15,16 +15,28 @@ Get the clientID and apiKey from webb.ai.
 
 ## Publish a new chart
 
+Package the helm chart locally:
 
 ```bash
 git pull
+git pull --tags
 helm package sources/webbai-agent --destination packages
+```
+
+Testing the local change:
+
+```bash
+helm upgrade --install webbai-agent packages/webbai-agent-0.2.0.tgz -n webbai
+```
+
+Release it:
+
+```bash
 helm repo index . --url https://webb-ai.github.io/helm-charts/ --merge index.yaml
 git add .
 git commit -m "publish a new chart"
 git push
 cr upload --owner webb-ai --git-repo helm-charts  --package-path packages --skip-existing
-
 ```
 
 ## Helm chart parameters
