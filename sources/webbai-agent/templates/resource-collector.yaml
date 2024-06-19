@@ -30,7 +30,7 @@ spec:
                     operator: NotIn
                     values: ["fargate"]
       containers:
-        - image: {{ .Values.image.repository }}/k8s-resource-collector:{{ .Values.resourceCollector.image.tag | default "v0.5.5" }}
+        - image: {{ .Values.image.repository }}/k8s-resource-collector:{{ .Values.resourceCollector.image.tag | default "v0.5.6" }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           name: webbai-resource-collector
           env:
