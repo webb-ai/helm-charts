@@ -50,10 +50,5 @@ cr upload --owner webb-ai --git-repo helm-charts  --package-path packages --skip
 | `resourceCollector.resources.requests.cpu` | The amount of CPU to request for the resource collector container. | `300m` |
 | `resourceCollector.resources.limits.memory` | The maximum amount of memory that can be used by the resource collector container. | `2000Mi` |
 | `resourceCollector.resources.limits.cpu` | The maximum amount of CPU that can be used by the resource collector container. | `500m` |
-| `trafficCollector.resources.requests.memory` | The amount of memory to request for the traffic collector container. | `200Mi` |
-| `trafficCollector.resources.requests.cpu` | The amount of CPU to request for the traffic collector container. | `300m` |
-| `trafficCollector.resources.limits.memory` | The maximum amount of memory that can be used by the traffic collector container. | `1000Mi` |
-| `trafficCollector.resources.limits.cpu` | The maximum amount of CPU that can be used by the traffic collector container. | `500m` |
-| `trafficCollector.tolerations` | Tolerations for traffic collector. |
 | `redactEnvVar` | Specifies whether environment variables in containers and initContainers of pods, deployments, daemonsets, statefulsets, job, and cronjobs should be masked before sending to webb.ai. If set to `true`, environment variables will be masked. If set to `false`, environment variables will not be masked. | `false` |
 

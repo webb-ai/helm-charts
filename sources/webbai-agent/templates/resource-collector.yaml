@@ -30,7 +30,7 @@ spec:
                     operator: NotIn
                     values: ["fargate"]
       containers:
-        - image: {{ .Values.image.repository }}/k8s-resource-collector:{{ .Values.resourceCollector.image.tag | default "v0.5.3" }}
+        - image: {{ .Values.image.repository }}/k8s-resource-collector:{{ .Values.resourceCollector.image.tag | default "v0.5.5" }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           name: webbai-resource-collector
           env:
@@ -48,12 +48,6 @@ spec:
             - "20"
             - --kube-api-burst # max burst for throttle from this client to kube api server
             - "30"
-            - --traffic-collector-pod-selector
-            - app=webbai-traffic-collector
-            - --traffic-collector-metrics-port
-            - "9095"
-            - --traffic-collector-server-port
-            - "8897"
             - --kafka-bootstrap-servers
             - {{ .Values.resourceCollector.kafka.servers | quote }}
             - --kafka-polling-interval
