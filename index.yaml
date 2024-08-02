@@ -3,7 +3,17 @@ entries:
   webbai-agent:
   - apiVersion: v2
     appVersion: v0.5.6
-    created: "2024-06-19T15:03:29.584565-07:00"
+    created: "2024-08-02T13:29:13.837826-07:00"
+    description: A Helm chart for Kubernetes
+    digest: 6c58f498e1bc7281eed10b95da5b05ae633b6db28f899cbf2acce7b7f8b21541
+    name: webbai-agent
+    type: application
+    urls:
+    - https://webb-ai.github.io/helm-charts/packages/webbai-agent-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v2
+    appVersion: v0.5.6
+    created: "2024-08-02T13:29:13.837652-07:00"
     description: A Helm chart for Kubernetes
     digest: 01ab83d9528797bd4852b10d5af884183299c59831cbeae2ae75687464f9cf89
     name: webbai-agent
@@ -13,7 +23,7 @@ entries:
     version: 0.2.2
   - apiVersion: v2
     appVersion: v0.5.5
-    created: "2024-06-19T15:03:29.584128-07:00"
+    created: "2024-08-02T13:29:13.837468-07:00"
     description: A Helm chart for Kubernetes
     digest: 042b25cac9952ab9891ddcb5ce5c4644e4c787d0bc7016e00a34ae8fbd2917fa
     name: webbai-agent
@@ -23,7 +33,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: v0.5.3
-    created: "2024-06-19T15:03:29.583667-07:00"
+    created: "2024-08-02T13:29:13.837277-07:00"
     description: A Helm chart for Kubernetes
     digest: b964bdfe8e534d78b87414dbfa9e569ec71037450fd3d60d8bd2f834c9b2d1e3
     name: webbai-agent
@@ -33,7 +43,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: v0.5.2
-    created: "2024-06-19T15:03:29.58311-07:00"
+    created: "2024-08-02T13:29:13.837062-07:00"
     description: A Helm chart for Kubernetes
     digest: e4794d85c6787b375cdf7102e15e7c52c7c24040d216299781964ec1eeeacc47
     name: webbai-agent
@@ -43,7 +53,7 @@ entries:
     version: 0.1.9
   - apiVersion: v2
     appVersion: v0.5.1
-    created: "2024-06-19T15:03:29.582594-07:00"
+    created: "2024-08-02T13:29:13.836845-07:00"
     description: A Helm chart for Kubernetes
     digest: 47a13e342bd210b1463020aa4eb3c31d4b56dafa40b3ddd96b16336e36d95c03
     name: webbai-agent
@@ -53,7 +63,7 @@ entries:
     version: 0.1.8
   - apiVersion: v2
     appVersion: v0.5.0
-    created: "2024-06-19T15:03:29.581882-07:00"
+    created: "2024-08-02T13:29:13.836638-07:00"
     description: A Helm chart for Kubernetes
     digest: f51c760ab48555845d706353381840f4fd5c19f4523bd55e1539d2e72aed04a1
     name: webbai-agent
@@ -63,7 +73,7 @@ entries:
     version: 0.1.7
   - apiVersion: v2
     appVersion: v0.5.0
-    created: "2024-06-19T15:03:29.581304-07:00"
+    created: "2024-08-02T13:29:13.836433-07:00"
     description: A Helm chart for Kubernetes
     digest: 971a621950f1dde37a96370992cd8a812f3ee91ac14e1b6b66fd18b78f22347c
     name: webbai-agent
@@ -73,7 +83,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: v0.4.7
-    created: "2024-06-19T15:03:29.580658-07:00"
+    created: "2024-08-02T13:29:13.836222-07:00"
     description: A Helm chart for Kubernetes
     digest: 54e8a495c7b13df4f8a9e1314a462f95c80f8a1a906e8edb97d90d0fb4b49fec
     name: webbai-agent
@@ -83,7 +93,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: v0.4.6
-    created: "2024-06-19T15:03:29.580139-07:00"
+    created: "2024-08-02T13:29:13.836009-07:00"
     description: A Helm chart for Kubernetes
     digest: 088bcea365dbea967987c5f80407ead3c27467b628c6e28d657f1cb4ca437121
     name: webbai-agent
@@ -93,7 +103,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: v0.4.5
-    created: "2024-06-19T15:03:29.579559-07:00"
+    created: "2024-08-02T13:29:13.835791-07:00"
     description: A Helm chart for Kubernetes
     digest: 17e1334318d39eccb73391f668d93a740d5c01d85275590a7795897f12006016
     name: webbai-agent
@@ -103,7 +113,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: v0.4.5
-    created: "2024-06-19T15:03:29.579022-07:00"
+    created: "2024-08-02T13:29:13.835562-07:00"
     description: A Helm chart for Kubernetes
     digest: 94ea425d71466e956ed36bf8498430e8d718cc6a51be882816c5b29c1382b226
     name: webbai-agent
@@ -113,7 +123,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: v0.4.4
-    created: "2024-06-19T15:03:29.578638-07:00"
+    created: "2024-08-02T13:29:13.835343-07:00"
     description: A Helm chart for Kubernetes
     digest: 6ad2b442ec1808dfa4a274e90c64ea5fcd6db2e73031157f4bcdbc016c7bd41f
     name: webbai-agent
@@ -121,4 +131,4 @@ entries:
     urls:
     - https://webb-ai.github.io/helm-charts/packages/webbai-agent-0.1.0.tgz
     version: 0.1.0
-generated: "2024-06-19T15:03:29.57761-07:00"
+generated: "2024-08-02T13:29:13.834318-07:00"

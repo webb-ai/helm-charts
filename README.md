@@ -47,8 +47,8 @@ cr upload --owner webb-ai --git-repo helm-charts  --package-path packages --skip
 | `apiKey` | The API key to use for authentication with the webb.ai API. This value can be obtained by contacting webb.ai. | `""` |
 | `resourceCollector.kafka.servers` | A comma-separated list of bootstrap servers for Kafka to use for the resource collector. | `""` |
 | `resourceCollector.resources.requests.memory` | The amount of memory to request for the resource collector container. | `1000Mi` |
-| `resourceCollector.resources.requests.cpu` | The amount of CPU to request for the resource collector container. | `300m` |
+| `resourceCollector.resources.requests.cpu` | The amount of CPU to request for the resource collector container. | `1` |
 | `resourceCollector.resources.limits.memory` | The maximum amount of memory that can be used by the resource collector container. | `2000Mi` |
-| `resourceCollector.resources.limits.cpu` | The maximum amount of CPU that can be used by the resource collector container. | `500m` |
+| `resourceCollector.resources.limits.cpu` | The maximum amount of CPU that can be used by the resource collector container. | `2` |
 | `redactEnvVar` | Specifies whether environment variables in containers and initContainers of pods, deployments, daemonsets, statefulsets, job, and cronjobs should be masked before sending to webb.ai. If set to `true`, environment variables will be masked. If set to `false`, environment variables will not be masked. | `false` |
 

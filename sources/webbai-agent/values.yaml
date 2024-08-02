@@ -20,10 +20,10 @@ resourceCollector:
   resources:
     requests:
       memory: 1000Mi
-      cpu: 300m
+      cpu: 1
     limits:
       memory: 2000Mi
-      cpu: 500m
+      cpu: 2
 
 # whether to redact env variables
 # if true, env variables in containers and initContainers of pods, deployments, daemonsets, statefulsets, job, and cronjobs will be removed before sending to webb.ai
